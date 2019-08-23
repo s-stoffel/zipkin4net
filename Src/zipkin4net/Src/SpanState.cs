@@ -15,6 +15,8 @@ namespace zipkin4net
 
         public long SpanId { get; private set; }
 
+        public bool IsServerSide { get; set; }
+
         internal const long NoTraceIdHigh = 0;
 
         [Obsolete("Please use Sampled method instead")]
@@ -108,7 +110,8 @@ namespace zipkin4net
             return TraceIdHigh == other.TraceIdHigh
                    && TraceId == other.TraceId
                    && ParentSpanId == other.ParentSpanId
-                   && SpanId == other.SpanId;
+                   && SpanId == other.SpanId
+                   && IsServerSide == other.IsServerSide;
         }
 
         public override bool Equals(object obj)
@@ -127,15 +130,17 @@ namespace zipkin4net
                 hashCode = (hashCode * 397) ^ TraceId.GetHashCode();
                 hashCode = (hashCode * 397) ^ ParentSpanId.GetHashCode();
                 hashCode = (hashCode * 397) ^ SpanId.GetHashCode();
+                hashCode = (hashCode * 397) ^ IsServerSide.GetHashCode();
                 return hashCode;
             }
         }
 
         public override string ToString()
         {
-            return string.Format("{0}{1}.{2}<:{3}",
+            return string.Format("{0}{1}.{2}<:{3}{4}",
                 TraceIdHigh == SpanState.NoTraceIdHigh ? "" : TraceIdHigh.ToString(), TraceId, SpanId,
-                ParentSpanId.HasValue ? ParentSpanId.Value.ToString(CultureInfo.InvariantCulture) : "_");
+                ParentSpanId.HasValue ? ParentSpanId.Value.ToString(CultureInfo.InvariantCulture) : "_",
+                IsServerSide ? "(s)" : "(c)");
         }
 
         public bool? Sampled { get; private set; }
