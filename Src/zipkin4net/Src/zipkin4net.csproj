@@ -2,12 +2,18 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard1.4;netstandard1.6;net451</TargetFrameworks>
     <AssemblyName>zipkin4net</AssemblyName>
-    <PackageId>zipkin4net</PackageId>
-    <Title>zipkin4net</Title>
+    <PackageId>traveltrex.zipkin4net</PackageId>
+    <Title>traveltrex.zipkin4net</Title>
     <Authors>Criteo</Authors>
     <Copyright>Criteo</Copyright>
     <Owners>Criteo</Owners>
-    <Description>C# Zipkin Tracer</Description>
+    <Description>C# Zipkin Tracer
+--------------------------------
+Forked of https://github.com/openzipkin/zipkin4net for changes needed by TravelTrex, that have not (or not yet) reached the official zipkin4net nuget package.
+
+Check out the "modified-packaging" branch in the forked repository, to get the modified packaging properties if you want to create a new nuget package.
+
+These changes are NOT intended to go into the master branch. Only changes that are intended to go back into the original repository one day should be merged into the master branch. Yet, if you have new changes in the master (or any other) branch and want these to be included in a new nuget package, you may merge them into the "modified-packaging" branch.</Description>
     <PackageVersion>1.1.0</PackageVersion>
     <PackageTags>Zipkin;Tracer;Tracing;Criteo</PackageTags>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
@@ -19,7 +25,7 @@
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <PackageTags>Zipkin;Tracer;Tracing;Criteo;zipkin4net</PackageTags>
-    <PackageProjectUrl>https://github.com/openzipkin/zipkin4net</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/s-stoffel/zipkin4net</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/openzipkin/zipkin4net/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard1.4' OR '$(TargetFramework)' == 'netstandard1.6'">
