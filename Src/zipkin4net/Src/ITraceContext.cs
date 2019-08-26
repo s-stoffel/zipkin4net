@@ -23,6 +23,10 @@ namespace zipkin4net
         /// </summary>
         long SpanId { get; }
         /// <summary>
+        /// Indicates if it is the server-side context of the trace, or the client-side context otherwise.
+        /// </summary>
+        bool IsServerSide { get; set; }
+        /// <summary>
         /// Returns a list of additional data propagated through this trace.
         ///
         /// <p>The contents are intentionally opaque, deferring to <see cref="Propagation.IPropagation{K}"/> to define. An
